@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ClassComponent from "./components/ClassComponent";
+import FunctionalComponent from "./components/FunctionalComponent";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [view, setView] = useState("class");
+
+  const toggle = () => {
+    setView(view === "class" ? "functional" : "class");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <br />
+      <button onClick={toggle}>
+        Show {view === "class" ? "Functional" : "Class"}
+      </button>
+      <hr />
+      {view === "class" ? <ClassComponent /> : <FunctionalComponent />}
     </div>
   );
-}
+};
 
 export default App;
