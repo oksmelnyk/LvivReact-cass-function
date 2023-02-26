@@ -1,22 +1,11 @@
 import React from "react";
-import data from "bootstrap/js/src/dom/data";
+import Year from "./Year";
 
 export default class ClassComponent extends React.Component {
   state = {
-    year: 1918,
     rMList: [],
     character: {},
   };
-  plus() {
-    this.setState({
-      year: this.state.year + 1,
-    });
-  }
-  minus() {
-    this.setState({
-      year: this.state.year - 1,
-    });
-  }
 
   onClick() {
     fetch("https://rickandmortyapi.com/api/character/10")
@@ -57,9 +46,7 @@ export default class ClassComponent extends React.Component {
           - столиця Галицько-Волинської держави, згодом - адміністративний центр
           Руського воєводства, автономного Королівства Галіції і Лодомерії.{" "}
           <br />
-          <br />У<button onClick={() => this.minus()}>-</button>
-          {this.state.year}
-          <button onClick={() => this.plus()}>+</button>
+          <br />У <Year initialValue={1918} />
           році - столиця ЗУНР. Після захоплення міста Польщею, Львів став
           центром однойменного воєводства. <br />
           <br />
@@ -67,8 +54,8 @@ export default class ClassComponent extends React.Component {
           німецькою арміями.
           <br />У повоєнний період відійшов до Рядянського Союзу.
           <ins>
-            З 1991 року - адміністративний центр Львівської області Незалежної
-            України.
+            З <Year initialValue={1991} /> року - адміністративний центр
+            Львівської області Незалежної України.
           </ins>
           <br />
         </p>
@@ -103,6 +90,22 @@ export default class ClassComponent extends React.Component {
             </li>
             <li>
               <b>1939-1944</b>: у період Другої світової війни
+            </li>
+            <li>
+              У
+              <b>
+                <Year initialValue={1990} />
+              </b>
+              відбувається розвал великих підприємств і триває затяжна
+              економічна криза
+            </li>
+            <li>
+              Зранку 18 березня
+              <b>
+                <Year initialValue={2022} />
+              </b>
+              року Львів вперше з початку російського вторгнення зазнав
+              ракетного удару.
             </li>
           </ol>
         </div>

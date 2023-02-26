@@ -1,9 +1,7 @@
 import React from "react";
+import Year from "./Year";
 
 const FunctionalComponent = () => {
-  const [year, setYear] = React.useState(1918);
-  const minus = () => setYear(year - 1);
-  const plus = () => setYear(year + 1);
   return (
     <div>
       <h1>Історія Львова</h1>
@@ -21,9 +19,8 @@ const FunctionalComponent = () => {
         </strong>
         - столиця Галицько-Волинської держави, згодом - адміністративний центр
         Руського воєводства, автономного Королівства Галіції і Лодомерії. <br />
-        <br />У<button onClick={minus}>-</button>
-        {year}
-        <button onClick={plus}>+</button>
+        <br />У
+        <Year initialValue={1918} />
         році - столиця ЗУНР. Після захоплення міста Польщею, Львів став центром
         однойменного воєводства. <br />
         <br />
@@ -31,8 +28,8 @@ const FunctionalComponent = () => {
         німецькою арміями.
         <br />У повоєнний період відійшов до Рядянського Союзу.
         <ins>
-          З 1991 року - адміністративний центр Львівської області Незалежної
-          України.
+          З <Year initialValue={1991} /> року - адміністративний центр
+          Львівської області Незалежної України.
         </ins>
         <br />
       </p>
@@ -67,6 +64,22 @@ const FunctionalComponent = () => {
           </li>
           <li>
             <b>1939-1944</b>: у період Другої світової війни
+          </li>
+          <li>
+            У
+            <b>
+              <Year initialValue={1990} />
+            </b>
+            відбувається розвал великих підприємств і триває затяжна економічна
+            криза.
+          </li>
+          <li>
+            Зранку 18 березня
+            <b>
+              <Year initialValue={2022} />
+            </b>
+            року Львів вперше з початку російського вторгнення зазнав ракетного
+            удару.
           </li>
         </ol>
       </div>
